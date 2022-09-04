@@ -12,7 +12,7 @@ if (inputLine != null)
 
     while (countNumber <= inputNumber)
     {
-        Console.WriteLine(countNumber % 2 != 0 ? "" : countNumber);
+        Console.Write(countNumber + " ");
         countNumber += 2;
     }
 }
