@@ -2,17 +2,31 @@
 // # 13 Напишите программу, которая выводит третью цифру заданного числа
 // или сообщает, что третьей цифры нет.
 //===================================================================================
+using System;
+using System.Diagnostics;
+
+Stopwatch st = new Stopwatch();
+TimeSpan tt;
 
 int inputNumber = 0;
 int result = 0;
 
 ReadData();
 Console.WriteLine("Вариант 1: Цикл");
+st.Start();
 CalculateData1();
+st.Stop();
+tt = st.Elapsed;
 PrintData();
+Console.WriteLine(tt);
+
 Console.WriteLine("Вариант 2: Логарифм");
+st.Start();
 CalculateData2();
+st.Stop();
+tt = st.Elapsed;
 PrintData();
+Console.WriteLine(tt);
 
 // Ввод: любое число
 void ReadData()
