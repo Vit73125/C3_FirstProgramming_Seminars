@@ -2,15 +2,45 @@
 // # 19 Напишите программу, которая принимает на вход пятизначное число и
 // проверяет, является ли оно палиндромом.
 //===================================================================================
+
+// Для теста
+using System;
+using System.Diagnostics;
+
+Stopwatch st = new Stopwatch();
+TimeSpan tt;
+
 Dictionary<long, string> PolDict = new Dictionary<long, string>();
 
 long num = ReadData("Введите пятизначное число: ");
+
 PrintResult("Число " + num + " - " + (CheckPolFiveDigit(num) ? "" : "не ") + "полиндром");
+// Тест
+st.Start();
+CheckPolFiveDigit(num);
+st.Stop();
+tt = st.Elapsed;
+Console.WriteLine(tt);
+
 GeneratePolDict();
 PrintResult("Число " + num + " - " + (CheckPolFiveDigitDict(num) ? "" : "не ") + "полиндром");
+// Тест
+PolDict.Clear();
+st.Start();
+GeneratePolDict();
+CheckPolFiveDigitDict(num);
+st.Stop();
+tt = st.Elapsed;
+Console.WriteLine(tt);
 
 num = ReadData("Введите любое число: ");
 PrintResult("Число " + num + " - " + (CheckPolAnyNum(num) ? "" : "не ") + "полиндром");
+// Тест
+st.Start();
+CheckPolAnyNum(num);
+st.Stop();
+tt = st.Elapsed;
+Console.WriteLine(tt);
 
 // Ввод: любое число
 long ReadData(string line)
