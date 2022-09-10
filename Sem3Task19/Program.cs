@@ -8,30 +8,29 @@ using System;
 using System.Diagnostics;
 
 Stopwatch st = new Stopwatch();
-TimeSpan tt;
 
 Dictionary<long, string> PolDict = new Dictionary<long, string>();
 
 long num = ReadData("Введите пятизначное число: ");
 
-PrintResult("Число " + num + " - " + (CheckPolFiveDigit(num) ? "" : "не ") + "полиндром");
+PrintResult("Метод - формула: Число " + num + " - " + (CheckPolFiveDigit(num) ? "" : "не ") + "полиндром");
 // Тест
 st.Start();
 CheckPolFiveDigit(num);
 st.Stop();
-tt = st.Elapsed;
-Console.WriteLine(tt);
+Console.WriteLine(st.Elapsed);
+st.Reset();
 
 GeneratePolDict();
-PrintResult("Число " + num + " - " + (CheckPolFiveDigitDict(num) ? "" : "не ") + "полиндром");
+PrintResult("Метод - словарь: Число " + num + " - " + (CheckPolFiveDigitDict(num) ? "" : "не ") + "полиндром");
 // Тест
 PolDict.Clear();
 st.Start();
 GeneratePolDict();
 CheckPolFiveDigitDict(num);
 st.Stop();
-tt = st.Elapsed;
-Console.WriteLine(tt);
+Console.WriteLine(st.Elapsed);
+st.Reset();
 
 num = ReadData("Введите любое число: ");
 PrintResult("Число " + num + " - " + (CheckPolAnyNum(num) ? "" : "не ") + "полиндром");
@@ -39,8 +38,7 @@ PrintResult("Число " + num + " - " + (CheckPolAnyNum(num) ? "" : "не ") +
 st.Start();
 CheckPolAnyNum(num);
 st.Stop();
-tt = st.Elapsed;
-Console.WriteLine(tt);
+Console.WriteLine(st.Elapsed);
 
 // Ввод: любое число
 long ReadData(string line)

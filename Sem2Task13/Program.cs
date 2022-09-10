@@ -6,7 +6,6 @@ using System;
 using System.Diagnostics;
 
 Stopwatch st = new Stopwatch();
-TimeSpan tt;
 
 int inputNumber = 0;
 int result = 0;
@@ -16,17 +15,16 @@ Console.WriteLine("Вариант 1: Цикл");
 st.Start();
 CalculateData1();
 st.Stop();
-tt = st.Elapsed;
 PrintData();
-Console.WriteLine(tt);
+Console.WriteLine(st.Elapsed);
+st.Reset();
 
 Console.WriteLine("Вариант 2: Логарифм");
 st.Start();
 CalculateData2();
 st.Stop();
-tt = st.Elapsed;
 PrintData();
-Console.WriteLine(tt);
+Console.WriteLine(st.Elapsed);
 
 // Ввод: любое число
 void ReadData()
