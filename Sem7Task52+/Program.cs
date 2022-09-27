@@ -27,11 +27,11 @@ int countCols = ReadData("Введите число столбцов: ");
 int[,] arr = Fill2DArrayInt(countRows, countCols, 1, 100);
 ConsoleColor[,] arrColors = new ConsoleColor[countRows, countCols];
 
-// Среднее арифметическое по столбцам
+// Средние арифметические по столбцам
 Print2DArray("Массив случайных чисел:", arr);
 PrintArrayDouble("Среднее арифметическое по столбцам:", ColsAverage(arr));
 
-// Среднее арифметическое по диагоналям
+// Средние арифметические по диагоналям
 double[] diags = DiagsAverageColored(arr, arrColors);
 Print2DArrayColored("Диагонали массива", arr, arrColors);
 PrintArrayDouble("Среднее арифметическое по дигоналям:", diags);
@@ -44,7 +44,7 @@ int ReadData(string line)
     return number;
 }
 
-// Заполнение двумерного массива случайными числами - целые числа
+// Ввод: Заполнение двумерного массива случайными числами - целые числа
 int[,] Fill2DArrayInt(int countRow, int countCol, int downBorder, int topBorder)
 {
     Random numSintezator = new Random();
@@ -63,7 +63,7 @@ int[,] Fill2DArrayInt(int countRow, int countCol, int downBorder, int topBorder)
     return arr;
 }
 
-// Возврашает столбец двумерного массива
+// Получение: столбец двумерного массива
 int[] GetCol(int[,] arrIn, int colNum)
 {
     int[] arrOut = new int[arrIn.GetLength(0)];
@@ -72,7 +72,7 @@ int[] GetCol(int[,] arrIn, int colNum)
     return arrOut;
 }
 
-// Подсчитывает среднее арифметическое в каждом столбце
+// Вычисление: средние арифметические по столбцам
 double[] ColsAverage(int[,] arr)
 {
     double[] colsAverage = new double[arr.GetLength(1)];
@@ -81,6 +81,7 @@ double[] ColsAverage(int[,] arr)
     return colsAverage;
 }
 
+// Вычисление: средние арифметические по диагоналям, с выделением диагоналей цветом
 double[] DiagsAverageColored(int[,] arr, ConsoleColor[,] arrColors)
 {
     System.Random rnd = new System.Random();
@@ -117,7 +118,7 @@ void PrintArrayDouble(string prefix, double[] arr)
     Console.WriteLine();
 }
 
-// Вывод: двумерный массив целых чисел с выделенной диагональю: 0 - прямая, другое - обратная
+// Вывод: двумерный массив с комментарием, с выделением цветом -  целые числа
 void Print2DArrayColored(string prefix, int[,] arr, ConsoleColor[,] arrColors)
 {
     Console.WriteLine(prefix);
@@ -131,7 +132,7 @@ void Print2DArrayColored(string prefix, int[,] arr, ConsoleColor[,] arrColors)
     }
 }
 
-// Вывод числа, выделенного цветом
+// Вывод: целое число с форматом, с выделением цветом
 void PrintColoredNum (string format, int num, ConsoleColor color)
 {
     Console.ForegroundColor = color;
@@ -139,7 +140,7 @@ void PrintColoredNum (string format, int num, ConsoleColor color)
     Console.ResetColor();
 }
 
-// Вывод: двумерный массив целых чисел с выделенной диагональю: 0 - прямая, другое - обратная
+// Вывод: двумерный массив с комментарием - целые числа
 void Print2DArray(string prefix, int[,] arr)
 {
     Console.WriteLine(prefix);
@@ -153,7 +154,7 @@ void Print2DArray(string prefix, int[,] arr)
     }
 }
 
-// Вывод: Число с комментарием
+// Вывод: целое число с комментарием
 void PrintResult(string prefix, int data)
 {
     Console.WriteLine(prefix + data);

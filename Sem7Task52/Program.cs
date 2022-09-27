@@ -8,7 +8,9 @@
 int countRows = ReadData("Введите число строк: ");
 int countCols = ReadData("Введите число столбцов: ");
 int[,] arr2D = Fill2DArrayInt(countRows, countCols, 1, 100);
-Print2DArrayInt("Исходный массив:", arr2D);
+
+// Средние арифметические по столбцам
+Print2DArrayInt("Массив случайных чисел:", arr2D);
 PrintArrayDouble("Среднее арифметическое по столбцам:", ColsAverage(arr2D));
 
 // Ввод: любое число
@@ -19,7 +21,7 @@ int ReadData(string line)
     return number;
 }
 
-// Заполнение двумерного массива случайными числами - целые числа
+// Ввод: заполнение двумерного массива случайными числами - целые числа
 int[,] Fill2DArrayInt(int countRow, int countCol, int downBorder, int topBorder)
 {
     Random numSintezator = new Random();
@@ -38,7 +40,7 @@ int[,] Fill2DArrayInt(int countRow, int countCol, int downBorder, int topBorder)
     return arr;
 }
 
-// Возврашает столбец двумерного массива
+// Получение: столбец двумерного массива
 int[] GetCol(int[,] arrIn, int colNum)
 {
     int[] arrOut = new int[arrIn.GetLength(0)];
@@ -47,7 +49,7 @@ int[] GetCol(int[,] arrIn, int colNum)
     return arrOut;
 }
 
-// Подсчитывает среднее арифметическое в каждом столбце
+// Вычисление: средние арифметические по столбцам
 double[] ColsAverage(int[,] arr)
 {
     double[] colsAverage = new double[arr.GetLength(1)];
@@ -56,7 +58,7 @@ double[] ColsAverage(int[,] arr)
     return colsAverage;
 }
 
-// Вывод: двумерный массив целых чисел с комментарием
+// Вывод: двумерный массив с комментарием - целые числа
 void Print2DArrayInt(string prefix, int[,] arr)
 {
     Console.WriteLine(prefix);
