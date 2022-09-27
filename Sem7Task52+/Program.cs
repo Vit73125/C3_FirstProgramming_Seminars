@@ -94,13 +94,13 @@ double[] DiagsAverageColored(int[,] arr, ConsoleColor[,] arrColors)
         int row = i < rows ? rows - i - 1 : 0;
         int col = i < rows ? 0 : i - rows + 1;
         double sum = 0;
-        int count = 1;
+        int count = 0;
         ConsoleColor color = colors[rnd.Next(1, 16)];
         while (row < rows && col < cols)
         {
+            count++;
             sum += (double) arr[row, col];
             arrColors[row, col] = color;
-            count++;
             row++;
             col++;
         }
